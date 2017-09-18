@@ -1,0 +1,122 @@
+void plot_pp_fit_ratio_eff()
+{
+//=========Macro generated from canvas: Fit/Fit on Efficiency Ratio
+//=========  (Mon Aug 29 17:39:11 2016) by ROOT version6.02/10
+   TCanvas *Fit = new TCanvas("Fit", "Fit on Efficiency Ratio",0,0,800,500);
+   gStyle->SetOptFit(1);
+   Fit->Range(1.625,-0.3125,55.375,2.8125);
+   Fit->SetFillColor(0);
+   Fit->SetBorderMode(0);
+   Fit->SetBorderSize(2);
+   Fit->SetFrameBorderMode(0);
+   Fit->SetFrameBorderMode(0);
+   Double_t xAxis1[6] = {7, 10, 15, 20, 30, 50}; 
+   
+   TH1D *PP_fit1 = new TH1D("PP_fit1","",5, xAxis1);
+   PP_fit1->SetBinContent(1,1.001179);
+   PP_fit1->SetBinContent(2,1.000897);
+   PP_fit1->SetBinContent(3,1.000391);
+   PP_fit1->SetBinContent(4,1.000847);
+   PP_fit1->SetBinContent(5,1.002447);
+   PP_fit1->SetBinError(1,0.03073179);
+   PP_fit1->SetBinError(2,0.01671022);
+   PP_fit1->SetBinError(3,0.01645247);
+   PP_fit1->SetBinError(4,0.0129299);
+   PP_fit1->SetBinError(5,0.01146242);
+   PP_fit1->SetMinimum(0);
+   PP_fit1->SetMaximum(2.5);
+   PP_fit1->SetEntries(13975.83);
+   
+   TF1 *myfit1 = new TF1("myfit","pow(10,[0]+[1]*x+x*x*[2])+pow(10,[3]*x*x+[4]*x*x*x+[5])",2,100);
+   myfit1->SetFillColor(19);
+   myfit1->SetFillStyle(0);
+   myfit1->SetMarkerStyle(20);
+   myfit1->SetLineColor(2);
+   myfit1->SetLineWidth(2);
+   myfit1->SetChisquare(0.0002787868);
+   myfit1->SetNDF(0);
+   myfit1->GetXaxis()->SetLabelFont(42);
+   myfit1->GetXaxis()->SetLabelSize(0.035);
+   myfit1->GetXaxis()->SetTitleSize(0.035);
+   myfit1->GetXaxis()->SetTitleFont(42);
+   myfit1->GetYaxis()->SetLabelFont(42);
+   myfit1->GetYaxis()->SetLabelSize(0.035);
+   myfit1->GetYaxis()->SetTitleSize(0.035);
+   myfit1->GetYaxis()->SetTitleFont(42);
+   myfit1->SetParameter(0,0.0009284442);
+   myfit1->SetParError(0,0.004391784);
+   myfit1->SetParLimits(0,0,0);
+   myfit1->SetParameter(1,-6.970938e-05);
+   myfit1->SetParError(1,0.000146608);
+   myfit1->SetParLimits(1,0,0);
+   myfit1->SetParameter(2,1.829246e-06);
+   myfit1->SetParError(2,3.88827e-06);
+   myfit1->SetParLimits(2,0,0);
+   myfit1->SetParameter(3,-0.0003487389);
+   myfit1->SetParError(3,13.20436);
+   myfit1->SetParLimits(3,0,0);
+   myfit1->SetParameter(4,-0.0002261277);
+   myfit1->SetParError(4,0.8471531);
+   myfit1->SetParLimits(4,0,0);
+   myfit1->SetParameter(5,-4.284868);
+   myfit1->SetParError(5,1.224315);
+   myfit1->SetParLimits(5,0,0);
+   PP_fit1->GetListOfFunctions()->Add(myfit1);
+   
+   TPaveStats *ptstats = new TPaveStats(0.558,0.6,0.9,0.9,"brNDC");
+   ptstats->SetName("stats");
+   ptstats->SetBorderSize(1);
+   ptstats->SetFillColor(0);
+   ptstats->SetTextAlign(12);
+   ptstats->SetTextFont(42);
+   TText *AText = ptstats->AddText("PP_fit");
+   AText->SetTextSize(0.01971428);
+   AText = ptstats->AddText("Entries = 13976  ");
+   AText = ptstats->AddText("Mean  =  20.71");
+   AText = ptstats->AddText("RMS   =  11.12");
+   AText = ptstats->AddText("Underflow =      0");
+   AText = ptstats->AddText("Overflow  =      0");
+   AText = ptstats->AddText("Integral =  5.006");
+   AText = ptstats->AddText("#chi^{2} / ndf = 0.0002788 / 0");
+   AText = ptstats->AddText("p0       = 0.0009284 #pm 0.0043918 ");
+   AText = ptstats->AddText("p1       = -6.971e-05 #pm 1.466e-04 ");
+   AText = ptstats->AddText("p2       = 1.829e-06 #pm 3.888e-06 ");
+   AText = ptstats->AddText("p3       = -0.0003487 #pm 13.2043629 ");
+   AText = ptstats->AddText("p4       = -0.0002261 #pm 0.8471531 ");
+   AText = ptstats->AddText("p5       = -4.285 #pm 1.224 ");
+   ptstats->SetOptStat(1111111);
+   ptstats->SetOptFit(111);
+   ptstats->Draw();
+   PP_fit1->GetListOfFunctions()->Add(ptstats);
+   ptstats->SetParent(PP_fit1);
+
+   Int_t ci;      // for color index setting
+   TColor *color; // for color definition with alpha
+   ci = TColor::GetColor("#000099");
+   PP_fit1->SetLineColor(ci);
+   PP_fit1->SetMarkerStyle(20);
+   PP_fit1->GetXaxis()->SetTitle("Gen p_{T}(GeV)");
+   PP_fit1->GetXaxis()->CenterTitle(true);
+   PP_fit1->GetXaxis()->SetLabelFont(42);
+   PP_fit1->GetXaxis()->SetLabelSize(0.035);
+   PP_fit1->GetXaxis()->SetTitleSize(0.035);
+   PP_fit1->GetXaxis()->SetTitleFont(42);
+   PP_fit1->GetYaxis()->SetTitle("Efficiency p_{T} weight / no weight");
+   PP_fit1->GetYaxis()->CenterTitle(true);
+   PP_fit1->GetYaxis()->SetLabelFont(42);
+   PP_fit1->GetYaxis()->SetLabelSize(0.035);
+   PP_fit1->GetYaxis()->SetTitleSize(0.035);
+   PP_fit1->GetYaxis()->SetTitleOffset(1.2);
+   PP_fit1->GetYaxis()->SetTitleFont(42);
+   PP_fit1->GetZaxis()->SetLabelFont(42);
+   PP_fit1->GetZaxis()->SetLabelSize(0.035);
+   PP_fit1->GetZaxis()->SetTitleSize(0.035);
+   PP_fit1->GetZaxis()->SetTitleFont(42);
+   PP_fit1->Draw("");
+      tex = new TLatex(15,2,"B+ pp #sqrt{s}= 5.02 TeV");
+   tex->SetLineWidth(2);
+   tex->Draw();
+   Fit->Modified();
+   Fit->cd();
+   Fit->SetSelected(Fit);
+}
