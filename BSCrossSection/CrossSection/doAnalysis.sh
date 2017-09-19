@@ -7,7 +7,7 @@ CENTPbPbMAX=100
 #Central point of the analysis
 
 # these settings control which macros are run
-DOANALYSISPP_FONLL=0
+DOANALYSISPP_FONLL=1
 DOANALYSISPP_FIT=1
 DOANALYSISPP_MCSTUDY=1
 DOANALYSISPP_CROSS=1
@@ -18,10 +18,10 @@ DOANALYSISPbPb_CROSS=1
 DORAA=1
 
 ## PP MONTE CARLO
-INPUTMCPP="../../bsTMVACDozen/merged-files/MLP_and_BDT_MC.root"
+INPUTMCPP="/data/HeavyFlavourRun2/MC2015/Bntuple/pp/Bntuple20160606_pp_Pythia8_BuToJpsiK_Bpt5p0_Pthat5.root"
 
 ## PP DATA 
-INPUTDATAPP="../../bsTMVACDozen/merged-files/MLP_and_BDT_DATA.root"
+INPUTDATAPP="/data/wangj/Data2015/Bntuple/pp/ntB_EvtBase_20160420_BfinderData_pp_20160419_bPt0jpsiPt0tkPt0p5.root"
 
 ## PbPb MONTE CARLO
 INPUTMCPbPb="/data/leure/forLuke/loop_Bs0_PbPb_MC_25072017_pthat10.root"
